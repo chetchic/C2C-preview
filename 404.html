@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex, nofollow"/><title>PREVIEW · Corner-to-Corner Studio</title>
+<script>
+/* PREVIEW SPA fallback: GitHub Pages serves this file for any unknown address. The app has one screen,
+   so find the folder that holds the app (works under any repo name, or at a site root) and go there,
+   keeping ?query and #share-link. */
+(function () {
+  var l = location, parts = l.pathname.split('/').filter(Boolean), cands = [];
+  for (var i = parts.length; i >= 0; i--) cands.push('/' + parts.slice(0, i).join('/') + (i ? '/' : ''));
+  function go(b) { l.replace(b + l.search + l.hash); }
+  (function next(k) {
+    if (k >= cands.length) { go('/'); return; }
+    fetch(cands[k] + 'assets/c2c-gate.js', { method: 'HEAD', cache: 'no-store' })
+      .then(function (r) { if (r.ok) go(cands[k]); else next(k + 1); }, function () { next(k + 1); });
+  })(0);
+})();
+</script></head><body style="font:16px Roboto,Arial,sans-serif;color:#41416e;background:#e8e6e4;text-align:center;padding:40px 16px">
+<p>Opening C2C Studio (preview)…</p></body></html>
